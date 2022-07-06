@@ -1,0 +1,13 @@
+r = audiorecorder(22050, 16, 1);
+record(r); % speak into microphone...
+pause(r);
+p = play(r); % listen
+mySpeech = getaudiodata(r, 'int16');
+audiowrite('myspeech.wav', mySpeech, 22500);
+[Y, Fs] = audioread('myspeech.wav');
+sound(Y, 8000);
+sound(Y, 11025);
+sound(Y, 22050);
+sound(Y, 44100);
+sound(Y, 48000);
+sound(Y, 96000);
